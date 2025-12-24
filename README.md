@@ -337,18 +337,6 @@ This project was created for the OXZON AI fine-tuning task evaluation.
 
 ---
 
-## 📄 License
-
-This project is for educational purposes as part of the OXZON AI task evaluation.
-
----
-
-## 👤 Author
-
-Created for **OXZON AI** fine-tuning task evaluation.
-
----
-
 <div align="center">
 
 **⭐ If you find this project helpful, please give it a star! ⭐**
