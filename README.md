@@ -29,7 +29,7 @@
 EduGuide-AI is an AI-powered assistant that helps students get quick answers to common university-related questions. Whether you need help with hostel applications, LMS password recovery, exam results, or course registration, this assistant is here to help!
 
 **Key Highlights:**
-- ✅ Trained on 600+ real university helpdesk queries
+- ✅ Dataset contains 600 instruction-response pairs (10 unique samples after cleaning)
 - ✅ Optimized for Sri Lankan university systems
 - ✅ Fast and efficient (uses only 1-2% of model parameters)
 - ✅ Works on free Google Colab GPUs
@@ -186,7 +186,7 @@ interactive_mode(fine_tuned_model, tokenizer, device)
 EduGuide-AI/
 │
 ├── 📄 complete_training_and_inference.ipynb    # Main training & inference notebook
-├── 📄 education_university_helpdesk_srilanka_dataset.csv  # Training dataset (600 samples)
+├── 📄 education_university_helpdesk_srilanka_dataset.csv  # Training dataset (600 original samples)
 ├── 📄 requirements.txt                         # Python dependencies
 ├── 📄 README.md                                # Project documentation
 │
@@ -210,7 +210,7 @@ EduGuide-AI/
 | **Base Model** | `google/flan-t5-base` (250M parameters) |
 | **Fine-tuning Method** | LoRA (Low-Rank Adaptation) / PEFT |
 | **Trainable Parameters** | ~1.7M (only 0.7% of total) |
-| **Dataset Size** | 600 instruction-response pairs |
+| **Dataset Size** | 600 original samples (10 unique after cleaning, 8 train + 2 validation) |
 | **Training Time** | 10-30 minutes (depending on hardware) |
 
 ### Why FLAN-T5-base?
@@ -261,7 +261,7 @@ The model was evaluated on 12+ diverse test questions covering:
 ### Current Limitations
 
 ⚠️ **Model Size** - 250M parameters may sometimes give generic responses  
-⚠️ **Dataset Size** - 600 samples may not cover all possible queries  
+⚠️ **Dataset Size** - Limited to 10 unique training samples (original dataset has 600, but many duplicates were removed)  
 ⚠️ **Complex Questions** - May struggle with multi-part questions  
 ⚠️ **Real-time Info** - Cannot provide current information (e.g., today's library hours)
 
@@ -293,9 +293,10 @@ The model was evaluated on 12+ diverse test questions covering:
 
 **A:** Try these improvements:
 - Use a larger model (FLAN-T5-large)
-- Add more training data (1000+ samples)
+- Add more diverse training data (expand beyond the current 10 unique samples)
 - Train for more epochs
 - Fine-tune hyperparameters
+- Improve data quality to reduce duplicates in the original dataset
 
 ### Q: Can I deploy this as a chatbot?
 
